@@ -11,5 +11,5 @@
 - Sub: Tennis, Workout, Soccer, Movie	
 ## Project Links:
 - [jojeongmin304/SEA-ME-Students](https://github.com/jojeongmin304/SEA-ME-Students)
-- [Exercise 02: convert.cpp](https://github.com/jojeongmin304/SEA-ME-Students/blob/main/convert.cpp)
-- [Exercise 03: PhoneBook.cpp](https://github.com/jojeongmin304/SEA-ME-Students/blob/main/PhoneBook.cpp)
+- [Exercise 02: convert.cpp](https://github.com/jojeongmin304/SEA-ME_warmup/blob/main/convert.cpp)
+- [Exercise 03: PhoneBook.cpp](https://github.com/jojeongmin304/SEA-ME_warmup/blob/main/PhoneBook.cpp)
