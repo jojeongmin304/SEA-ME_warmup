@@ -30,8 +30,7 @@ public:
     void add(const Contact& contact); //object of Contact class as parameter
     void search(const string& name);
     void remove(const string& phoneNumber);
-    void bookmark(const string& phonmber);
-    void Exit(); 
+    void bookmark(const string& phonmber); 
     static bool compareName(const Contact &a, const Contact &b) {
         return a.getName() < b.getName(); //compare by name
     }
@@ -40,11 +39,12 @@ public:
 //implementation of Contact member functions
 Contact::Contact(string name, string phonenumber, string nickname){
     this->name = name;
-    this->phoneNumber = phoneNumber;
+    this->phoneNumber = phonenumber;
     this->nickName = nickname;
     this->isBookmarked = false; //default value
 }
 void Contact::display() const {
+    cout << endl;
     cout << "name: " << name << endl;
     cout << "phoneNumber: " << phoneNumber << endl;
     cout << "nickName: " << nickName << endl;
@@ -54,11 +54,10 @@ void Contact::setBookmark(bool status) {
     isBookmarked = status;
 }
 
-
 //Implementation of phoneBook member functinos
 void phoneBook::add(const Contact& contact) {
     contacts.push_back(contact);
-    cout << "new contact added!" << endl;
+    cout << "\nNEW CONTACT ADDED!" << endl;
     contact.display();
     // sort contacts by name
     sort(contacts.begin(), contacts.end(), phoneBook::compareName );
@@ -70,7 +69,7 @@ void phoneBook::search(const string& name) {  //to show every phone number with 
             cout << "Bookmarked Contact: " << c.getName() << " Phone Number: " << c.getPhoneNumber() << endl;
     }
     for (Contact & c : contacts) {
-        cout << index << " Name: " << c.getName() << " Phone Number: " << c.getPhoneNumber() << endl;
+        cout << index << '.' << " Name: " << c.getName() << ", Phone Number: " << c.getPhoneNumber() << endl;
         index++;
     }
     for (const Contact& c : contacts) {
@@ -79,10 +78,9 @@ void phoneBook::search(const string& name) {  //to show every phone number with 
             return;
         }
     }
-    cout << "Contact with name: " << name << " not found." << endl;
+    cout << endl << "Contact with name: " << name << " not found." << endl;
     return;
 }
-
 void phoneBook::remove(const string& phoneNumber) {
     for (int i = 0; i < contacts.size(); i++) {
         if (contacts[i].getPhoneNumber() == phoneNumber) {  //to find the contact with given phonenumber
@@ -93,7 +91,6 @@ void phoneBook::remove(const string& phoneNumber) {
         }
     }
 }
-
 void phoneBook::bookmark(const string& phoneNumber) {
 
     for (Contact& c: contacts) {
@@ -107,16 +104,17 @@ void phoneBook::bookmark(const string& phoneNumber) {
 
 
 int main() {
-    cout << "Hi this is a old phone book program." << endl;
+    cout << "Hi this is a old phone book program." << endl << endl;
     phoneBook pb;
     string name, phoneNumber, nickName;
     int choice;
     cout << "Choose a function: " << endl 
-    << "1. Add Contact, " << endl
-    << "2. Search Contact, " << endl
-    << "3. Remove Contact, " << endl
-    << "4. Bookmark Contact, " << endl
-    << "5. Exit " << endl;
+    << "1. Add Contact " << endl
+    << "2. Search Contact " << endl
+    << "3. Remove Contact " << endl
+    << "4. Bookmark Contact " << endl
+    << "5. Exit " << endl << endl;
+
     while(true) {
         cout << "Select a function: ";
         cin >> choice;
@@ -125,7 +123,7 @@ int main() {
             cin >> name;
             cout << "Enter phoneNumber(8 digit in Series): ";
             cin >> phoneNumber;
-            cout << "Enter nuckName: ";
+            cout << "Enter nickName: ";
             cin >> nickName;
             pb.add(Contact(name, phoneNumber, nickName));
         }
@@ -145,7 +143,6 @@ int main() {
             pb.bookmark(phoneNumber);
         }
         else if (choice == 5) {
-            pb.Exit();
             break;
         }
         else {
