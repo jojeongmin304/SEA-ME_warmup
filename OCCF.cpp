@@ -42,3 +42,12 @@ Car::~Car() {
     // No need to delete heap memory as we are not using any dynamic memory allocation
     // If we had used dynamic memory allocation, we would need to delete it here.
 }
+
+int main() {
+    Car car1; //Default consturctor
+    Car car2(car1); // Copy constructor
+    Car car3;
+    car3 = car1; // Copy assignment operator overlead
+
+    return 0;
+}
